@@ -1,0 +1,54 @@
+
+#include <iostream>
+#include <cmath>
+#include <string>
+#include <sstream>
+using namespace std;
+int main()
+{
+    int q;
+    string numbers;
+    setlocale(LC_ALL, "RU");
+    cout << "В какую систему счисления переводить число 10 или 3: ";
+    cin >> q;
+    if (q == 10) {
+        int k = 0;
+        
+        int t = -1;
+        cout << "Введитите число: ";
+        cin >> numbers;
+        for (int i = 0; numbers[i]; i++)
+        {
+            if (isdigit(numbers[i])) {
+                t++;
+            }
+        }
+        for (int i = 0; numbers[i]; i++)
+        {
+            if (isdigit(numbers[i])) {
+                int c = numbers[i];
+                c = c - 48; 
+               k = k + c  * pow(3,t);
+               t--;
+            }
+        }
+        cout << k << endl;
+    }
+    if (q == 3) { 
+        int u = 0;
+        int h;
+        string lk;
+        cout << "Введитите число: ";
+        cin >> h;
+        
+        while( h > 0)
+        {
+         u = h % 3;
+         lk += to_string(u);
+         h /= 3;
+        }
+        reverse(lk.begin(), lk.end());
+        cout << lk;
+        
+    }
+}
